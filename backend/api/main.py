@@ -1,6 +1,8 @@
+from json.tool import main
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+
 
 from database import *
 
@@ -26,6 +28,7 @@ class BookModel(BaseModel):
     description: str
     image_url: str
     rating: int = 0
+    price:int
 
 
 class BookRatingReqest(BaseModel):
@@ -35,6 +38,11 @@ class BookRatingReqest(BaseModel):
 class AddBookReview(BaseModel):
     isbn: str
     comment: str
+
+
+@app.get("/test")
+async def say_hello():
+    return "hello"
 
 #Newly Arrived
 
@@ -138,3 +146,7 @@ async def get_book_review(isbn):
         "msg": "Cannot find the review."
     }
     return response
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
