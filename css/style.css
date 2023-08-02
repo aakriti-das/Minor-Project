@@ -327,6 +327,14 @@ section.top-products {
   position: absolute;
   bottom: -40px;
 }
+.book-slider{
+  display: flex;
+  width: 100%;
+  border:1px solid red;
+  justify-content: center;
+  gap:4rem;
+
+}
 section.top-products .book-slider .book-card {
   background: var(--HEAVEN);
   padding: 1.5rem 0;
@@ -370,7 +378,7 @@ section.top-products .book-slider .book-card button {
   border-radius: 4px;
   display: flex;
   align-items: center;
-  width: 50%;
+  padding-right:8px;
   font-size: 1rem;
   transition: all 0.3sec ease;
 }

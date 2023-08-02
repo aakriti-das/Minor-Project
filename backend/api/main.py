@@ -110,7 +110,7 @@ async def book_rating(req:BookRatingReqest):
     book = book_collection.update_one(filter, update)
     response = {
         'status': True,
-        'msg': f"Rating updated to {req.rating}"
+        'msg': "Rating updated to {req.rating}"
     }
     return response
 
