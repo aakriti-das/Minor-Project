@@ -2,33 +2,26 @@
 <html>
 
 <head>
-    <title>Admin Login</title>
+    <title></title>
     <link rel="stylesheet" href="./css/admin.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="login-container">
-        <form id="login-form">
-            <h2>Admin Login</h2>
-            <input type="text" id="username" placeholder="Username" required> <br>
-            <input type="password" id="password" placeholder="Password" required> <br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
 
-    <div class="book-section" style="display: none;">
+
+    <div class="book-section">
         <!-- <h2>Add Book</h2>
-        <form id="book-form">
-            <input type="text" id="isbn" placeholder="ISBN" required>
-            <input type="text" id="book-title" placeholder="Book Title" required>
-            <input type="date" id="published-date" required>
-            <input type="text" id="author-name" placeholder="Author Name" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <input type="url" id="image-url" placeholder="Image URL" required>
-            <input type="number" id="rating" min="1" max="5" step="1" placeholder="Rating" required>
-            <input type="number" id="price" step="1" placeholder="Price" required>
-            <button type="submit">Add Book</button>
+        <form id=" book-form">
+        <input type="text" id="isbn" placeholder="ISBN" required>
+        <input type="text" id="book-title" placeholder="Book Title" required>
+        <input type="date" id="published-date" required>
+        <input type="text" id="author-name" placeholder="Author Name" required>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="url" id="image-url" placeholder="Image URL" required>
+        <input type="number" id="rating" min="1" max="5" step="1" placeholder="Rating" required>
+        <input type="number" id="price" step="1" placeholder="Price" required>
+        <button type="submit">Add Book</button>
         </form> -->
 
         <table id="book-table">
@@ -46,9 +39,62 @@
                 </tr>
             </tbody>
         </table>
+
+
+
+        <form action="" id="form">
+            <div>
+                <label for="">Book Number(isbn)</label>
+                <input type="text" id="isbn" placeholder="Book Number">
+            </div>
+
+            <div>
+                <label for="">Book Name</label>
+                <input type="text" id="book_name" placeholder="Book Name">
+            </div>
+
+            <div>
+                <label for="">Author Name</label>
+                <input type="text" id="author_name" placeholder="Author Name">
+            </div>
+
+
+            <div>
+                <label for="">Category</label>
+                <input type="text" id="category" placeholder="Category">
+            </div>
+
+
+            <div>
+                <label for="">Description</label>
+                <input type="text" id="description" placeholder="Description">
+            </div>
+
+            <div>
+                <label for=""></label>
+                <input type="file" id="img">
+            </div>
+
+            <div>
+                <label for="">Rating</label>
+                <input type="number" id="rating" placeholder="Rating">
+            </div>
+
+            <div>
+                <label for="">Price</label>
+                <input type="number" id="price" placeholder="Price">
+            </div>
+
+            <div>
+                <label for="">Published Date</label>
+                <input type="text" id="published_date" placeholder="2022-03-28">
+            </div>
+
+            <button type="button" id="submit_btn">Add Post</button>
+        </form>
     </div>
 
-    <script src="./JS/admin.js"></script>
+    <script src=" ./JS/admin.js"></script>
 </body>
 
 </html>

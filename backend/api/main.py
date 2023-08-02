@@ -70,7 +70,7 @@ async def get_newly_arrived_book(limit=10):
 
 
 @app.get("/book/most_popular")
-async def get_most_popular_book(limit=10):
+async def get_most_popular_book(limit=6):
     books = list(book_collection.find({}, {'_id': False}
                                       ).sort('rating', -1).limit(int(limit)))
     return books

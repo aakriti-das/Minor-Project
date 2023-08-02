@@ -228,12 +228,11 @@ header.hero {
   background-image: url(../Image/back.png);
   background-position: 0% 0%;
   background-repeat: no repeat;
-  background-size:cover;
+  background-size: cover;
   overflow: hidden;
 }
 header.hero .container {
   position: relative;
-  
 }
 header.hero .welcome span {
   font-family: "Raleway-bold";
@@ -265,25 +264,24 @@ header.hero h2 span {
   color: var(--pink);
 }
 .btn {
-  padding:16px 20px;
-  border-radius:8px;
+  padding: 16px 20px;
+  border-radius: 8px;
   line-height: 0.7;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3sec ease;
   border: 1px solid transparent;
-  margin:auto auto;
+  margin: auto auto;
 }
 .btn-primary {
   background: var(--pink);
   color: var(--pure);
- margin-top: 8px;
+  margin-top: 8px;
 }
 .btn-primary:hover {
   background: var(--mild);
 
   color: var(--pink);
-  
 }
 .btn-secondary {
   background: var(--mild);
@@ -296,7 +294,7 @@ header.hero h2 span {
 }
 header.hero button:first-child {
   margin-right: 1rem;
-  margin-left:2rem;
+  margin-left: 2rem;
 }
 header.hero .hero-image {
   position: absolute;
@@ -327,13 +325,12 @@ section.top-products {
   position: absolute;
   bottom: -40px;
 }
-.book-slider{
-  display: flex;
-  width: 100%;
-  border:1px solid red;
+.book-slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid red;
   justify-content: center;
-  gap:4rem;
-
+  gap: 4rem;
 }
 section.top-products .book-slider .book-card {
   background: var(--HEAVEN);
@@ -378,7 +375,7 @@ section.top-products .book-slider .book-card button {
   border-radius: 4px;
   display: flex;
   align-items: center;
-  padding-right:8px;
+  padding-right: 8px;
   font-size: 1rem;
   transition: all 0.3sec ease;
 }

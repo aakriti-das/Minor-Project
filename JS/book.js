@@ -1,11 +1,11 @@
 window.onload = function () {
-
-    fetch("http://localhost:8000/book/newly_arrived")
-        .then((response) => response.json())
-        .then((data) => data.forEach(item => {
-            const container = document.createElement("div")
-            container.setAttribute("class", "book-card magic-shadow-sm")
-            container.innerHTML = `        <div class="book-image flex items-center justify-center">
+  fetch("http://localhost:8000/book/newly_arrived")
+    .then((response) => response.json())
+    .then((data) =>
+      data.forEach((item) => {
+        const container = document.createElement("div");
+        container.setAttribute("class", "book-card magic-shadow-sm");
+        container.innerHTML = `<div class="book-image flex items-center justify-center">
       <img src=${item.image_url} alt="">
 
   </div>
@@ -24,7 +24,7 @@ window.onload = function () {
       </div>
       <div>
           <div class="price text-center ">
-              ${item.price}
+             Rs. ${item.price}
           </div>
           <div class="flex justify-center">
               <button class="AddToCart-btn">
@@ -35,10 +35,11 @@ window.onload = function () {
               </button>
           </div>
       </div>
-  </div>`
-            document.getElementById("book-slider").appendChild(container)
-        }))
-        .catch((err) => {
-            console.log("error" + err);
-        })
-}
+  </div>`;
+        document.getElementById("book-slider").appendChild(container);
+      })
+    )
+    .catch((err) => {
+      console.log("error" + err);
+    });
+};
