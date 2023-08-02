@@ -19,6 +19,8 @@ app.add_middleware(
 )
 
 # Models
+
+
 class BookModel(BaseModel):
     isbn: str
     name: str
@@ -28,12 +30,13 @@ class BookModel(BaseModel):
     description: str
     image_url: str
     rating: int = 0
-    price:int
+    price: int
 
 
 class BookRatingReqest(BaseModel):
     isbn: str
     rating: int = 0
+
 
 class AddBookReview(BaseModel):
     isbn: str
@@ -44,21 +47,36 @@ class AddBookReview(BaseModel):
 async def say_hello():
     return "hello"
 
-#Newly Arrived
+# Newly Arrived
+
+
+@app.get("/book/get_all")
+async def get_all_books():
+    books = list(book_collection.find({}))
+    serialized_books = []
+    for book in books:
+        book["_id"] = str(book["_id"])  # Convert ObjectId to string
+        serialized_books.append(book)
+    return serialized_books
+
 
 @app.get("/book/newly_arrived")
 async def get_newly_arrived_book(limit=10):
-    books = list(book_collection.find({}, {'_id': False}).sort('published_date', -1).limit(int(limit)))
+    books = list(book_collection.find({}, {'_id': False}).sort(
+        'published_date', -1).limit(int(limit)))
     return books
 
-#Most Popular
+# Most Popular
+
 
 @app.get("/book/most_popular")
 async def get_most_popular_book(limit=10):
-    books = list(book_collection.find({},{'_id': False}).sort('rating', -1).limit(int(limit)))
+    books = list(book_collection.find({}, {'_id': False}
+                                      ).sort('rating', -1).limit(int(limit)))
     return books
 
-#Book Details
+# Book Details
+
 
 @app.get("/book/details")
 async def get_book_details(isbn):
@@ -71,7 +89,8 @@ async def get_book_details(isbn):
             'msg': f'Could not find book with ISBN {isbn}'
         }
 
-#Adding Book
+# Adding Book
+
 
 @app.post("/book/add_book")
 async def add_book(req: BookModel):
@@ -88,7 +107,8 @@ async def add_book(req: BookModel):
     }
     return response
 
-#Deleting Book
+# Deleting Book
+
 
 @app.post("/book/delete")
 async def delete_book(isbn):
@@ -99,9 +119,11 @@ async def delete_book(isbn):
     }
     return response
 
-#Book Rating
+# Book Rating
+
+
 @app.post("/book/rating")
-async def book_rating(req:BookRatingReqest):
+async def book_rating(req: BookRatingReqest):
     filter = {"isbn": req.isbn}
     update = {"$set": {"rating": req.rating}}
     # this must be update query
@@ -114,7 +136,9 @@ async def book_rating(req:BookRatingReqest):
     }
     return response
 
-#Adding Review
+# Adding Review
+
+
 @app.post("/book/add_review")
 async def add_book_review(req: AddBookReview):
     book = reviews_collection.insert_one(req.dict())
@@ -125,7 +149,7 @@ async def add_book_review(req: AddBookReview):
     return response
 
 
-#Deleting Review
+# Deleting Review
 
 @app.post("/book/delete_review")
 async def delete_book_review(isbn):
@@ -136,7 +160,8 @@ async def delete_book_review(isbn):
     }
     return response
 
-#Get Review
+# Get Review
+
 
 @app.get("/book/get_review")
 async def get_book_review(isbn):

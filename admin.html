@@ -4,20 +4,21 @@
 <head>
     <title>Admin Login</title>
     <link rel="stylesheet" href="./css/admin.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="login-container">
-        <h2>Admin Login</h2>
         <form id="login-form">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
+            <h2>Admin Login</h2>
+            <input type="text" id="username" placeholder="Username" required> <br>
+            <input type="password" id="password" placeholder="Password" required> <br>
             <button type="submit">Login</button>
         </form>
     </div>
 
     <div class="book-section" style="display: none;">
-        <h2>Add Book</h2>
+        <!-- <h2>Add Book</h2>
         <form id="book-form">
             <input type="text" id="isbn" placeholder="ISBN" required>
             <input type="text" id="book-title" placeholder="Book Title" required>
@@ -28,10 +29,10 @@
             <input type="number" id="rating" min="1" max="5" step="1" placeholder="Rating" required>
             <input type="number" id="price" step="1" placeholder="Price" required>
             <button type="submit">Add Book</button>
-        </form>
+        </form> -->
 
-        <h2>Added Books</h2>
         <table id="book-table">
+            <h2 style="text-align: center;">Added Books</h2>
             <thead>
                 <tr>
                     <th>ISBN</th>
@@ -39,8 +40,10 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Book rows will be added here dynamically -->
+            <tbody id="table_body">
+                <tr>
+
+                </tr>
             </tbody>
         </table>
     </div>
